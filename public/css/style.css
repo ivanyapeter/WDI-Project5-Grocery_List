@@ -1,0 +1,71 @@
+html {
+  font-family: 'Helvetiva Neue', Arial;
+  font-size: 20px;
+  font-weight: 100;
+  color: grey; }
+
+input {
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  color: grey;
+  padding: .5em 0;
+  border: 0;
+  border-bottom: 1.5px solid #cdcdcd;
+  width: 100%; }
+  input:focus, input:active {
+    outline: none; }
+
+.container {
+  width: 80%;
+  margin: 0 auto; }
+
+.shopping-list {
+  width: 100vw;
+  height: 100vh; }
+
+.top-bar {
+  padding: 1em 0;
+  color: white;
+  background-color: tomato; }
+  .top-bar .title {
+    margin-bottom: 1em; }
+  .top-bar input {
+    background-color: tomato;
+    color: white;
+    border-bottom: 1.5px solid white; }
+  .top-bar ::-webkit-input-placeholder {
+    color: white; }
+
+.main {
+  padding: 1em 0; }
+
+.form {
+  padding-bottom: 1em;
+  font-size: inherit; }
+  .form input {
+    width: 100%; }
+    .form input:focus, .form input:active {
+      outline: none; }
+
+.item-list .item {
+  padding: .5em 0;
+  margin-bottom: .3em;
+  border-bottom: 1.5px solid #cdcdcd; }
+  .item-list .item:hover {
+    color: #cdcdcd; }
+
+button {
+  width: 100%;
+  border: 0;
+  background-color: tomato;
+  color: white;
+  margin-top: .3em 0;
+  padding: .4em 0;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  transition: all 2s ease; }
+  button:focus, button:active, button:hover {
+    outline: none;
+    background-color: #ff4d2e; }
