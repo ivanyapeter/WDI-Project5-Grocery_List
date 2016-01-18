@@ -1,12 +1,38 @@
+var ShoppingList = React.createClass({
+	editItem: function() {
+		// return <editList key={this.state.id} text={this.state.text}>;
+	},
+
+	render: function() {
+		var createItem = function(item) {
+			return (
+				<li className="item" key={item.id} onDoubleClick={this.editItem}>{item.text}</li>
+			);
+		};
+		return (
+			<div className="item-list">
+				<ul>{this.props.filteredItems.map(createItem, this)}</ul>
+			</div>
+		);
+	}
+});
+
+var editList = React.createClass({
+	render: function() {
+		return (
+			<div className="edit-item">
+				// <input text={this.props.text} type="text" />
+			</div>
+		)
+	}
+});
+
 // var ShoppingList = React.createClass({
-// 	editItem: function(event) {
-// 		return console.log(this.props.text);
-// 	},
 // 	render: function() {
 // 		var createItem = function(item) {
 // 			return (
-// 				<li className="item" key={item.id}>{item.text} 
-// 					<button onClick={this.editItem}>Edit</button>
+// 				<li className="item" key={item.id}>
+// 					{item.text} 
 // 				</li>
 // 			);
 // 		};
@@ -17,22 +43,6 @@
 // 		);
 // 	}
 // });
-var ShoppingList = React.createClass({
-	render: function() {
-		var createItem = function(item) {
-			return (
-				<li className="item" key={item.id}>
-					{item.text} 
-				</li>
-			);
-		};
-		return (
-			<div className="item-list">
-				<ul>{this.props.filteredItems.map(createItem, this)}</ul>
-			</div>
-		);
-	}
-});
 
 var MainApp = React.createClass({
 	filterList: function(event) {
@@ -83,6 +93,9 @@ var MainApp = React.createClass({
 	onChange: function(event) {
 		this.setState({text: event.target.value});
 	},
+	editItem: function() {
+		console.log('clicked');
+	},
 	handleSubmit: function(event) {
 		event.preventDefault();
 		var nextItems = this.state.filteredItems.concat([{text: this.state.text, id: Date.now()}]);
@@ -106,7 +119,7 @@ var MainApp = React.createClass({
 							<input onChange={this.onChange} value={this.state.text} type="text" placeholder="Add new item"/>
 							<button>Add</button>
 						</form>
-						<ShoppingList filteredItems={this.state.filteredItems} />
+						<ShoppingList filteredItems={this.state.filteredItems} onDoubleClick={this.editItem}/>
 					</div>
 				</section>
 			</div>
